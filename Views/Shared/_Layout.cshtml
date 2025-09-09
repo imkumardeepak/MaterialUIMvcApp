@@ -1,0 +1,112 @@
+﻿﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MaterialUIMvcApp</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MaterialUIMvcApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="mui-layout">
+        <!-- Top App Bar -->
+        <header class="mui-app-bar">
+            <div class="mui-toolbar">
+                <button id="menuToggle" class="mui-menu-button">
+                    <span class="material-icons">menu</span>
+                </button>
+                <div class="mui-app-title">MaterialUIMvcApp</div>
+                <div class="mui-spacer"></div>
+                <button class="mui-icon-button">
+                    <span class="material-icons">notifications</span>
+                </button>
+                <button class="mui-icon-button">
+                    <span class="material-icons">account_circle</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Side Navigation -->
+        <aside class="mui-drawer" id="drawer">
+            <div class="mui-drawer-header">
+                <div class="mui-drawer-title">Navigation</div>
+            </div>
+            <nav class="mui-navigation">
+                <ul class="mui-nav-list">
+                    <li class="mui-nav-item">
+                        <a href="/" class="mui-nav-link">
+                            <span class="material-icons">home</span>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="mui-nav-item">
+                        <a href="/Home/Privacy" class="mui-nav-link">
+                            <span class="material-icons">lock</span>
+                            <span>Privacy</span>
+                        </a>
+                    </li>
+                    <li class="mui-nav-item">
+                        <a href="#" class="mui-nav-link">
+                            <span class="material-icons">dashboard</span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="mui-nav-item">
+                        <a href="#" class="mui-nav-link">
+                            <span class="material-icons">people</span>
+                            <span>Users</span>
+                        </a>
+                    </li>
+                    <li class="mui-nav-item">
+                        <a href="#" class="mui-nav-link">
+                            <span class="material-icons">settings</span>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="mui-main-content">
+            <div class="mui-content-wrapper">
+                @RenderBody()
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mui-footer">
+        <div class="mui-footer-content">
+            <div class="mui-footer-text">
+                &copy; 2025 - MaterialUIMvcApp - 
+                <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <script>
+        // Toggle drawer functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const drawer = document.getElementById('drawer');
+            
+            if (menuToggle && drawer) {
+                menuToggle.addEventListener('click', function() {
+                    drawer.classList.toggle('mui-drawer-open');
+                });
+            }
+        });
+    </script>
+    
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

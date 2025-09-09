@@ -1,0 +1,269 @@
+﻿﻿﻿﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center" id="app">
+    <h1 class="display-4">Welcome to Material UI with .NET Core MVC</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    
+    <div id="material-ui-components">
+        <button id="mui-button" class="mui-btn mui-btn--primary">Material UI Button</button>
+        <br /><br />
+        <div id="mui-textfield-container">
+            <input id="mui-textfield" type="text" placeholder="Material UI Text Field" />
+        </div>
+        
+        <!-- Material UI Searchable Dropdown -->
+        <div class="mui-dropdown-container">
+            <div class="mui-dropdown-header" id="dropdownHeader">
+                <span id="selectedValue">Select an option</span>
+                <span class="mui-dropdown-arrow">▼</span>
+            </div>
+            <div class="mui-dropdown-list" id="dropdownList">
+                <input type="text" class="mui-dropdown-search" id="dropdownSearch" placeholder="Search..." />
+                <ul id="dropdownOptions">
+                    <!-- Options will be populated by JavaScript -->
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Material UI Multi-Select Dropdown -->
+        <div class="mui-multiselect-container">
+            <div class="mui-multiselect-header" id="multiselectHeader">
+                <span id="selectedValues">Select options</span>
+                <span class="mui-dropdown-arrow">▼</span>
+            </div>
+            <div class="mui-dropdown-list" id="multiselectList">
+                <input type="text" class="mui-dropdown-search" id="multiselectSearch" placeholder="Search..." />
+                <ul id="multiselectOptions">
+                    <!-- Options will be populated by JavaScript -->
+                </ul>
+            </div>
+        </div>
+        <div id="selectedTagsContainer" class="selected-tags-container"></div>
+    </div>
+</div>
+
+<script>
+    // Simple Material UI component initialization
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add some basic styling to make it look like Material UI
+        const button = document.getElementById('mui-button');
+        if (button) {
+            button.style.padding = '10px 20px';
+            button.style.border = 'none';
+            button.style.borderRadius = '4px';
+            button.style.backgroundColor = '#1976d2';
+            button.style.color = 'white';
+            button.style.cursor = 'pointer';
+            button.style.boxShadow = '0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12)';
+            
+            button.addEventListener('mouseenter', function() {
+                button.style.backgroundColor = '#1565c0';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                button.style.backgroundColor = '#1976d2';
+            });
+        }
+        
+        const textField = document.getElementById('mui-textfield');
+        if (textField) {
+            textField.style.padding = '10px';
+            textField.style.border = '1px solid #ccc';
+            textField.style.borderRadius = '4px';
+            textField.style.fontFamily = 'Roboto, sans-serif';
+            textField.style.fontSize = '16px';
+            
+            textField.addEventListener('focus', function() {
+                textField.style.borderColor = '#1976d2';
+                textField.style.boxShadow = '0 0 0 2px rgba(25, 118, 210, 0.2)';
+                textField.style.outline = 'none';
+            });
+            
+            textField.addEventListener('blur', function() {
+                textField.style.borderColor = '#ccc';
+                textField.style.boxShadow = 'none';
+            });
+        }
+        
+        // Material UI Searchable Dropdown Implementation
+        const dropdownHeader = document.getElementById('dropdownHeader');
+        const dropdownList = document.getElementById('dropdownList');
+        const dropdownSearch = document.getElementById('dropdownSearch');
+        const dropdownOptions = document.getElementById('dropdownOptions');
+        const selectedValue = document.getElementById('selectedValue');
+        
+        // Dummy data for the dropdown
+        const dummyData = [
+            { id: 1, name: 'Option 1' },
+            { id: 2, name: 'Option 2' },
+            { id: 3, name: 'Option 3' },
+            { id: 4, name: 'Option 4' },
+            { id: 5, name: 'Option 5' },
+            { id: 6, name: 'Apple' },
+            { id: 7, name: 'Banana' },
+            { id: 8, name: 'Cherry' },
+            { id: 9, name: 'Date' },
+            { id: 10, name: 'Elderberry' }
+        ];
+        
+        // Populate dropdown with options
+        function populateDropdown(options) {
+            dropdownOptions.innerHTML = '';
+            options.forEach(option => {
+                const li = document.createElement('li');
+                li.textContent = option.name;
+                li.dataset.id = option.id;
+                li.addEventListener('click', function() {
+                    selectedValue.textContent = option.name;
+                    dropdownList.style.display = 'none';
+                });
+                dropdownOptions.appendChild(li);
+            });
+        }
+        
+        // Initialize dropdown with all options
+        populateDropdown(dummyData);
+        
+        // Toggle dropdown visibility
+        dropdownHeader.addEventListener('click', function() {
+            const isDisplayed = dropdownList.style.display === 'block';
+            dropdownList.style.display = isDisplayed ? 'none' : 'block';
+        });
+        
+        // Filter options based on search input
+        dropdownSearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const filteredOptions = dummyData.filter(option => 
+                option.name.toLowerCase().includes(searchTerm)
+            );
+            populateDropdown(filteredOptions);
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!dropdownHeader.contains(event.target) && !dropdownList.contains(event.target)) {
+                dropdownList.style.display = 'none';
+            }
+        });
+        
+        // Material UI Multi-Select Dropdown Implementation
+        const multiselectHeader = document.getElementById('multiselectHeader');
+        const multiselectList = document.getElementById('multiselectList');
+        const multiselectSearch = document.getElementById('multiselectSearch');
+        const multiselectOptions = document.getElementById('multiselectOptions');
+        const selectedValues = document.getElementById('selectedValues');
+        const selectedTagsContainer = document.getElementById('selectedTagsContainer');
+        
+        // Store selected items
+        let selectedItems = [];
+        
+        // Populate multiselect with options
+        function populateMultiselect(options) {
+            multiselectOptions.innerHTML = '';
+            options.forEach(option => {
+                const li = document.createElement('li');
+                li.textContent = option.name;
+                li.dataset.id = option.id;
+                
+                // Check if item is already selected
+                const isSelected = selectedItems.some(item => item.id === option.id);
+                if (isSelected) {
+                    li.classList.add('selected');
+                }
+                
+                li.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const itemId = parseInt(option.id);
+                    const itemIndex = selectedItems.findIndex(item => item.id === itemId);
+                    
+                    if (itemIndex === -1) {
+                        // Add item to selected items
+                        selectedItems.push(option);
+                        li.classList.add('selected');
+                    } else {
+                        // Remove item from selected items
+                        selectedItems.splice(itemIndex, 1);
+                        li.classList.remove('selected');
+                    }
+                    
+                    // Update display
+                    updateSelectedDisplay();
+                });
+                
+                multiselectOptions.appendChild(li);
+            });
+        }
+        
+        // Update the display of selected items
+        function updateSelectedDisplay() {
+            if (selectedItems.length === 0) {
+                selectedValues.textContent = 'Select options';
+                selectedTagsContainer.innerHTML = '';
+            } else {
+                selectedValues.textContent = `${selectedItems.length} selected`;
+                renderSelectedTags();
+            }
+        }
+        
+        // Render selected tags
+        function renderSelectedTags() {
+            selectedTagsContainer.innerHTML = '';
+            selectedItems.forEach(item => {
+                const tag = document.createElement('div');
+                tag.className = 'selected-tag';
+                tag.innerHTML = `
+                    <span>${item.name}</span>
+                    <span class="remove-tag" data-id="${item.id}">✕</span>
+                `;
+                selectedTagsContainer.appendChild(tag);
+            });
+            
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.remove-tag').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const itemId = parseInt(this.dataset.id);
+                    const itemIndex = selectedItems.findIndex(item => item.id === itemId);
+                    
+                    if (itemIndex !== -1) {
+                        selectedItems.splice(itemIndex, 1);
+                        updateSelectedDisplay();
+                        // Refresh the dropdown to update selection states
+                        const searchTerm = multiselectSearch.value.toLowerCase();
+                        const filteredOptions = dummyData.filter(option =>
+                            option.name.toLowerCase().includes(searchTerm)
+                        );
+                        populateMultiselect(filteredOptions);
+                    }
+                });
+            });
+        }
+        
+        // Initialize multiselect with all options
+        populateMultiselect(dummyData);
+        
+        // Toggle multiselect visibility
+        multiselectHeader.addEventListener('click', function() {
+            const isDisplayed = multiselectList.style.display === 'block';
+            multiselectList.style.display = isDisplayed ? 'none' : 'block';
+        });
+        
+        // Filter options based on search input for multiselect
+        multiselectSearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const filteredOptions = dummyData.filter(option => 
+                option.name.toLowerCase().includes(searchTerm)
+            );
+            populateMultiselect(filteredOptions);
+        });
+        
+        // Close multiselect when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!multiselectHeader.contains(event.target) && !multiselectList.contains(event.target)) {
+                multiselectList.style.display = 'none';
+            }
+        });
+    });
+</script>
