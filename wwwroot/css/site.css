@@ -227,6 +227,263 @@ body {
   }
 }
 
+/* Material UI Dashboard Styles */
+.mui-dashboard {
+  padding: 20px 0;
+}
+
+.mui-dashboard-header h1 {
+  margin: 0 0 8px 0;
+  font-weight: 500;
+  color: #333;
+}
+
+.mui-dashboard-header p {
+  margin: 0 0 24px 0;
+  color: #666;
+}
+
+.mui-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.mui-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.mui-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.mui-card-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.mui-card-actions .mui-icon-button {
+  color: #666;
+  padding: 8px;
+}
+
+.mui-card-content {
+  padding: 24px;
+}
+
+/* Stats Cards */
+.mui-stats-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mui-stats-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.mui-stats-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  font-size: 24px;
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.mui-stats-info h3 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+}
+
+.mui-stats-value {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.mui-stats-footer {
+  margin-top: auto;
+}
+
+.mui-stats-change {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.mui-stats-change.positive {
+  color: #4caf50;
+}
+
+.mui-stats-change.negative {
+  color: #f44336;
+}
+
+/* Chart Card */
+.mui-chart-card {
+  grid-column: 1 / -1;
+}
+
+.mui-chart-placeholder {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.mui-chart-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.mui-chart-bars {
+  display: flex;
+  align-items: end;
+  height: 200px;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.mui-chart-bar {
+  flex: 1;
+  background: linear-gradient(to top, #1976d2, #64b5f6);
+  border-radius: 4px 4px 0 0;
+  min-width: 20px;
+}
+
+.mui-chart-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* Activity Card */
+.mui-activity-card {
+  grid-column: 1 / -1;
+}
+
+.mui-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mui-activity-item {
+  display: flex;
+  gap: 16px;
+}
+
+.mui-activity-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e3f2fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1976d2;
+  flex-shrink: 0;
+}
+
+.mui-activity-content {
+  flex: 1;
+}
+
+.mui-activity-content h4 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.mui-activity-content p {
+  margin: 0 0 4px 0;
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.mui-activity-time {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+/* Table Card */
+.mui-table-card {
+  grid-column: 1 / -1;
+}
+
+.mui-table-container {
+  overflow-x: auto;
+}
+
+.mui-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mui-table th,
+.mui-table td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.mui-table th {
+  font-weight: 500;
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.mui-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.mui-status-badge {
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.mui-status-badge.success {
+  background-color: #e8f5e9;
+  color: #4caf50;
+}
+
+.mui-status-badge.pending {
+  background-color: #fff8e1;
+  color: #ff9800;
+}
+
+.mui-status-badge.cancelled {
+  background-color: #ffebee;
+  color: #f44336;
+}
+
 /* Material UI Form Styles */
 .mui-form-container {
   display: flex;

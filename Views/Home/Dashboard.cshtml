@@ -1,0 +1,246 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="mui-dashboard">
+    <div class="mui-dashboard-header">
+        <h1>Dashboard</h1>
+        <p>Welcome back! Here's what's happening today.</p>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="mui-dashboard-grid">
+        <div class="mui-card mui-stats-card">
+            <div class="mui-card-content">
+                <div class="mui-stats-header">
+                    <span class="mui-stats-icon material-icons">people</span>
+                    <div class="mui-stats-info">
+                        <h3>Users</h3>
+                        <p class="mui-stats-value">12,361</p>
+                    </div>
+                </div>
+                <div class="mui-stats-footer">
+                    <span class="mui-stats-change positive">+12% from last month</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mui-card mui-stats-card">
+            <div class="mui-card-content">
+                <div class="mui-stats-header">
+                    <span class="mui-stats-icon material-icons">shopping_cart</span>
+                    <div class="mui-stats-info">
+                        <h3>Orders</h3>
+                        <p class="mui-stats-value">1,284</p>
+                    </div>
+                </div>
+                <div class="mui-stats-footer">
+                    <span class="mui-stats-change positive">+8% from last month</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mui-card mui-stats-card">
+            <div class="mui-card-content">
+                <div class="mui-stats-header">
+                    <span class="mui-stats-icon material-icons">attach_money</span>
+                    <div class="mui-stats-info">
+                        <h3>Revenue</h3>
+                        <p class="mui-stats-value">$24,569</p>
+                    </div>
+                </div>
+                <div class="mui-stats-footer">
+                    <span class="mui-stats-change negative">-3% from last month</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mui-card mui-stats-card">
+            <div class="mui-card-content">
+                <div class="mui-stats-header">
+                    <span class="mui-stats-icon material-icons">trending_up</span>
+                    <div class="mui-stats-info">
+                        <h3>Conversion</h3>
+                        <p class="mui-stats-value">4.2%</p>
+                    </div>
+                </div>
+                <div class="mui-stats-footer">
+                    <span class="mui-stats-change positive">+1.2% from last month</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts and Tables Section -->
+    <div class="mui-dashboard-grid">
+        <!-- Chart Card -->
+        <div class="mui-card mui-chart-card">
+            <div class="mui-card-header">
+                <h2>Sales Overview</h2>
+                <div class="mui-card-actions">
+                    <button class="mui-icon-button">
+                        <span class="material-icons">more_vert</span>
+                    </button>
+                </div>
+            </div>
+            <div class="mui-card-content">
+                <div class="mui-chart-placeholder">
+                    <div class="mui-chart-container">
+                        <!-- Simplified chart representation -->
+                        <div class="mui-chart-bars">
+                            <div class="mui-chart-bar" style="height: 60%;"></div>
+                            <div class="mui-chart-bar" style="height: 80%;"></div>
+                            <div class="mui-chart-bar" style="height: 40%;"></div>
+                            <div class="mui-chart-bar" style="height: 90%;"></div>
+                            <div class="mui-chart-bar" style="height: 70%;"></div>
+                            <div class="mui-chart-bar" style="height: 65%;"></div>
+                            <div class="mui-chart-bar" style="height: 85%;"></div>
+                            <div class="mui-chart-bar" style="height: 75%;"></div>
+                            <div class="mui-chart-bar" style="height: 95%;"></div>
+                            <div class="mui-chart-bar" style="height: 80%;"></div>
+                            <div class="mui-chart-bar" style="height: 60%;"></div>
+                            <div class="mui-chart-bar" style="height: 70%;"></div>
+                        </div>
+                        <div class="mui-chart-labels">
+                            <span>Jan</span>
+                            <span>Feb</span>
+                            <span>Mar</span>
+                            <span>Apr</span>
+                            <span>May</span>
+                            <span>Jun</span>
+                            <span>Jul</span>
+                            <span>Aug</span>
+                            <span>Sep</span>
+                            <span>Oct</span>
+                            <span>Nov</span>
+                            <span>Dec</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity Card -->
+        <div class="mui-card mui-activity-card">
+            <div class="mui-card-header">
+                <h2>Recent Activity</h2>
+                <div class="mui-card-actions">
+                    <button class="mui-icon-button">
+                        <span class="material-icons">more_vert</span>
+                    </button>
+                </div>
+            </div>
+            <div class="mui-card-content">
+                <div class="mui-activity-list">
+                    <div class="mui-activity-item">
+                        <div class="mui-activity-icon">
+                            <span class="material-icons">person_add</span>
+                        </div>
+                        <div class="mui-activity-content">
+                            <h4>New user registered</h4>
+                            <p>John Doe joined the platform</p>
+                            <span class="mui-activity-time">2 minutes ago</span>
+                        </div>
+                    </div>
+                    <div class="mui-activity-item">
+                        <div class="mui-activity-icon">
+                            <span class="material-icons">shopping_cart</span>
+                        </div>
+                        <div class="mui-activity-content">
+                            <h4>New order received</h4>
+                            <p>Order #12345 for $245.00</p>
+                            <span class="mui-activity-time">24 minutes ago</span>
+                        </div>
+                    </div>
+                    <div class="mui-activity-item">
+                        <div class="mui-activity-icon">
+                            <span class="material-icons">payment</span>
+                        </div>
+                        <div class="mui-activity-content">
+                            <h4>Payment received</h4>
+                            <p>Payment for order #12342</p>
+                            <span class="mui-activity-time">1 hour ago</span>
+                        </div>
+                    </div>
+                    <div class="mui-activity-item">
+                        <div class="mui-activity-icon">
+                            <span class="material-icons">settings</span>
+                        </div>
+                        <div class="mui-activity-content">
+                            <h4>System update</h4>
+                            <p>Platform updated to v2.1.0</p>
+                            <span class="mui-activity-time">3 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tables Section -->
+    <div class="mui-dashboard-grid">
+        <!-- Recent Orders Table -->
+        <div class="mui-card mui-table-card">
+            <div class="mui-card-header">
+                <h2>Recent Orders</h2>
+                <div class="mui-card-actions">
+                    <button class="mui-icon-button">
+                        <span class="material-icons">more_vert</span>
+                    </button>
+                </div>
+            </div>
+            <div class="mui-card-content">
+                <div class="mui-table-container">
+                    <table class="mui-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#12345</td>
+                                <td>John Smith</td>
+                                <td>Oct 12, 2023</td>
+                                <td>$245.00</td>
+                                <td><span class="mui-status-badge success">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>#12344</td>
+                                <td>Sarah Johnson</td>
+                                <td>Oct 11, 2023</td>
+                                <td>$189.50</td>
+                                <td><span class="mui-status-badge pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>#12343</td>
+                                <td>Michael Brown</td>
+                                <td>Oct 10, 2023</td>
+                                <td>$560.75</td>
+                                <td><span class="mui-status-badge success">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>#12342</td>
+                                <td>Emily Davis</td>
+                                <td>Oct 9, 2023</td>
+                                <td>$89.99</td>
+                                <td><span class="mui-status-badge cancelled">Cancelled</span></td>
+                            </tr>
+                            <tr>
+                                <td>#12341</td>
+                                <td>Robert Wilson</td>
+                                <td>Oct 8, 2023</td>
+                                <td>$324.25</td>
+                                <td><span class="mui-status-badge success">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
