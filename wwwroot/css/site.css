@@ -227,6 +227,208 @@ body {
   }
 }
 
+/* Material UI Form Styles */
+.mui-form-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.mui-form-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  padding: 24px;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px 0;
+}
+
+.mui-form-title {
+  margin-top: 0;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #333;
+  font-weight: 500;
+}
+
+.mui-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.mui-form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -8px;
+}
+
+.mui-form-group {
+  margin-bottom: 20px;
+  flex: 1 0 auto;
+  padding: 0 8px;
+  min-width: 200px;
+}
+
+.mui-form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.mui-form-input,
+.mui-form-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.mui-form-input:focus,
+.mui-form-textarea:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+.mui-form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.mui-checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.mui-form-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mui-checkbox-input {
+  margin-right: 8px;
+  width: auto;
+}
+
+.mui-checkbox-label {
+  font-weight: normal;
+  color: #333;
+}
+
+.mui-form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.mui-btn--secondary {
+  color: #333;
+  background-color: #e0e0e0;
+  border-color: #e0e0e0;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mui-btn--secondary:hover {
+  background-color: #d5d5d5;
+  border-color: #cecece;
+}
+
+.mui-validation-summary {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border-left: 4px solid #c62828;
+}
+
+.mui-validation-error {
+  color: #c62828;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Success Page Styles */
+.mui-success-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.mui-success-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  padding: 32px;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.mui-success-icon {
+  color: #4caf50;
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.mui-success-title {
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.mui-success-message {
+  color: #666;
+  margin-bottom: 32px;
+}
+
+.mui-user-details {
+  text-align: left;
+  background-color: #f5f5f5;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 32px;
+}
+
+.mui-user-details h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.mui-detail-row {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.mui-detail-label {
+  font-weight: 500;
+  min-width: 100px;
+  color: #333;
+}
+
+.mui-detail-value {
+  flex: 1;
+  color: #666;
+}
+
+.mui-success-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
 /* Material UI inspired styles */
 .mui-btn {
   display: inline-block;

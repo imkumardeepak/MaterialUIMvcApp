@@ -18,6 +18,27 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Form()
+    {
+        return View(new UserModel());
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Form(UserModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            // Process the valid model
+            // In a real application, you would save to database here
+            ViewBag.Message = "Form submitted successfully!";
+            return View("FormSuccess", model);
+        }
+
+        // If we got this far, something failed, redisplay form
+        return View(model);
+    }
+
     public IActionResult Privacy()
     {
         return View();

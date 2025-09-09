@@ -1,0 +1,50 @@
+@model UserModel
+@{
+    ViewData["Title"] = "Form Success";
+}
+
+<div class="mui-success-container">
+    <div class="mui-success-card">
+        <div class="mui-success-icon">
+            <span class="material-icons">check_circle</span>
+        </div>
+        <h2 class="mui-success-title">Registration Successful!</h2>
+        <p class="mui-success-message">Thank you for registering. Your information has been submitted successfully.</p>
+        
+        <div class="mui-user-details">
+            <h3>User Details:</h3>
+            <div class="mui-detail-row">
+                <span class="mui-detail-label">Name:</span>
+                <span class="mui-detail-value">@Model.FirstName @Model.LastName</span>
+            </div>
+            <div class="mui-detail-row">
+                <span class="mui-detail-label">Email:</span>
+                <span class="mui-detail-value">@Model.Email</span>
+            </div>
+            <div class="mui-detail-row">
+                <span class="mui-detail-label">Age:</span>
+                <span class="mui-detail-value">@Model.Age</span>
+            </div>
+            <div class="mui-detail-row">
+                <span class="mui-detail-label">Gender:</span>
+                <span class="mui-detail-value">@Model.Gender</span>
+            </div>
+            <div class="mui-detail-row">
+                <span class="mui-detail-label">Country:</span>
+                <span class="mui-detail-value">@Model.Country</span>
+            </div>
+            @if (!string.IsNullOrEmpty(Model.Bio))
+            {
+                <div class="mui-detail-row">
+                    <span class="mui-detail-label">Bio:</span>
+                    <span class="mui-detail-value">@Model.Bio</span>
+                </div>
+            }
+        </div>
+        
+        <div class="mui-success-actions">
+            <a href="@Url.Action("Form", "Home")" class="mui-btn mui-btn--primary">Submit Another</a>
+            <a href="@Url.Action("Index", "Home")" class="mui-btn mui-btn--secondary">Back to Home</a>
+        </div>
+    </div>
+</div>

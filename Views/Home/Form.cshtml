@@ -1,0 +1,97 @@
+@model UserModel
+@{
+    ViewData["Title"] = "User Form";
+}
+
+<div class="mui-form-container">
+    <div class="mui-form-card">
+        <h2 class="mui-form-title">User Registration Form</h2>
+        <form asp-action="Form" method="post" class="mui-form">
+            <div asp-validation-summary="ModelOnly" class="mui-validation-summary"></div>
+            
+            <div class="mui-form-row">
+                <div class="mui-form-group">
+                    <label asp-for="FirstName" class="mui-form-label"></label>
+                    <input asp-for="FirstName" class="mui-form-input" />
+                    <span asp-validation-for="FirstName" class="mui-validation-error"></span>
+                </div>
+                
+                <div class="mui-form-group">
+                    <label asp-for="LastName" class="mui-form-label"></label>
+                    <input asp-for="LastName" class="mui-form-input" />
+                    <span asp-validation-for="LastName" class="mui-validation-error"></span>
+                </div>
+            </div>
+            
+            <div class="mui-form-group">
+                <label asp-for="Email" class="mui-form-label"></label>
+                <input asp-for="Email" class="mui-form-input" type="email" />
+                <span asp-validation-for="Email" class="mui-validation-error"></span>
+            </div>
+            
+            <div class="mui-form-group">
+                <label asp-for="Password" class="mui-form-label"></label>
+                <input asp-for="Password" class="mui-form-input" type="password" />
+                <span asp-validation-for="Password" class="mui-validation-error"></span>
+            </div>
+            
+            <div class="mui-form-row">
+                <div class="mui-form-group">
+                    <label asp-for="Age" class="mui-form-label"></label>
+                    <input asp-for="Age" class="mui-form-input" type="number" />
+                    <span asp-validation-for="Age" class="mui-validation-error"></span>
+                </div>
+                
+                <div class="mui-form-group">
+                    <label asp-for="Gender" class="mui-form-label"></label>
+                    <select asp-for="Gender" class="mui-form-input">
+                        <option value="">-- Select Gender --</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="mui-validation-error"></span>
+                </div>
+            </div>
+            
+            <div class="mui-form-group">
+                <label asp-for="Country" class="mui-form-label"></label>
+                <select asp-for="Country" class="mui-form-input">
+                    <option value="">-- Select Country --</option>
+                    <option value="USA">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Germany">Germany</option>
+                    <option value="France">France</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span asp-validation-for="Country" class="mui-validation-error"></span>
+            </div>
+            
+            <div class="mui-form-group">
+                <label asp-for="Bio" class="mui-form-label"></label>
+                <textarea asp-for="Bio" class="mui-form-textarea" rows="4"></textarea>
+                <span asp-validation-for="Bio" class="mui-validation-error"></span>
+            </div>
+            
+            <div class="mui-form-group mui-checkbox-group">
+                <label class="mui-form-checkbox">
+                    <input asp-for="AcceptTerms" type="checkbox" class="mui-checkbox-input" />
+                    <span class="mui-checkbox-label">I accept the terms and conditions</span>
+                </label>
+                <span asp-validation-for="AcceptTerms" class="mui-validation-error"></span>
+            </div>
+            
+            <div class="mui-form-actions">
+                <button type="submit" class="mui-btn mui-btn--primary">Submit</button>
+                <button type="reset" class="mui-btn mui-btn--secondary">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
